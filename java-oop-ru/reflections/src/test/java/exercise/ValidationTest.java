@@ -27,7 +27,24 @@ class ValidationTest {
         assertThat(result3).isEqualTo(expected3);
     }
 
-    // BEGIN
-    
-    // END
+    @Test
+    void testAdvancedValidate() {
+        Address address1 = new Address("Russia", "Ufa", "Lenina", "54", null);
+        Map<String, List<String>> result1 = Validator.advancedValidate(address1);
+        Map<String, List<String>> expected1 = Map.of();
+        assertThat(result1).isEqualTo(expected1);
+
+        Address address2 = new Address(null, "London", "1-st street", "5", "1");
+        Map<String, List<String>> result2 = Validator.advancedValidate(address2);
+        List<String> list2 = List.of("length less than 4", "can not be null");
+        Map<String, List<String>> expected2 = Map.of("country", list2);
+        assertThat(result2).isEqualTo(expected2);
+
+        Address address3 = new Address("USA", "Texas", null, "7", "2");;
+        Map<String, List<String>> result3 = Validator.advancedValidate(address3);
+        List<String> list31 = List.of("length less than 4");
+        List<String> listNull = List.of("can not be null");
+        Map<String, List<String>> expected3 = Map.of("country",list31, "street", listNull);
+        assertThat(result3).isEqualTo(expected3);
+    }
 }

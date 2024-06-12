@@ -2,6 +2,7 @@ package exercise;
 
 class Address {
     @NotNull
+    @MinLength(minLength = 4)
     private String country;
 
     @NotNull
@@ -12,7 +13,6 @@ class Address {
 
     @NotNull
     private String houseNumber;
-
     private String flatNumber;
 
     Address(String country, String city, String street, String houseNumber, String flatNumber) {
