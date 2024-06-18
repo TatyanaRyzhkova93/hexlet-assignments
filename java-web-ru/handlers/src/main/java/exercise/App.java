@@ -17,7 +17,7 @@ public final class App {
         String jsonPhones, jsonDomains;
         try {
             jsonPhones = objectMapper.writeValueAsString(phones);
-            jsonDomains = objectMapper.writeValueAsString(phones);
+            jsonDomains = objectMapper.writeValueAsString(domains);
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
