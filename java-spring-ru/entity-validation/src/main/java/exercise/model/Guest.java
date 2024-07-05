@@ -20,8 +20,6 @@ import lombok.Setter;
 import java.time.LocalDate;
 
 
-
-
 @Entity
 @Table(name = "guests")
 @EntityListeners(AuditingEntityListener.class)
@@ -33,14 +31,14 @@ public class Guest {
     @GeneratedValue(strategy = IDENTITY)
     private long id;
 
-    @NotBlank
+    //@NotBlank
     private String name;
 
     @Email
     @Column(unique = true)
     private String email;
 
-    @Pattern(regexp = "[\\+^][0-9]{10,12}")
+    @Pattern(regexp = "[+^][0-9]{10,12}")
     @Column(unique = true)
     private String phoneNumber;
 

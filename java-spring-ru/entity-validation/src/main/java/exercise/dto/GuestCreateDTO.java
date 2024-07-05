@@ -6,7 +6,11 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 
 import java.time.LocalDate;
+import lombok.Getter;
+import lombok.Setter;
 
+@Setter
+@Getter
 public class GuestCreateDTO {
 
     @NotBlank
@@ -15,7 +19,7 @@ public class GuestCreateDTO {
     @Email
     private String email;
 
-    @Pattern(regexp = "[\\+^][0-9]{10,12}")
+    @Pattern(regexp = "[+^][0-9]{10,12}")
     private String phoneNumber;
 
     @Pattern(regexp = "[0-9]{4}")
